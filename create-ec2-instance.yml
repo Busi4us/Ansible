@@ -5,10 +5,10 @@
   gather_facts: False
 
   vars:
-    region: us-east-1
-    image: ami-0557a15b87f6559cf
-    instance_type: t2.micro
-    sec_group: "sec"
+    region: us-east-2
+    image: ami-00eeedc4036573771
+    instance_type: t2.small
+    sec_group: "sg"
 
   tasks:
     - name: Create a security group
@@ -28,7 +28,7 @@
 
     - name: Launch an EC2 instance
       ec2:
-        key_name: test-key
+        key_name: jenkins
         group_id: "{{ sec_group }}"
         instance_type: "{{ instance_type }}"
         image: "{{ image }}"
